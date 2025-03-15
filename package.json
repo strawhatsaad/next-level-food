@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^6.5.0",
     "better-sqlite3": "^11.8.1",
     "cloudinary": "^2.6.0",
     "next": "14.0.3",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "eslint": "^8",
-    "eslint-config-next": "14.0.3"
+    "eslint-config-next": "14.0.3",
+    "prisma": "^6.5.0"
   }
 }

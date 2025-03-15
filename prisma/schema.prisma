@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model meals {
+  id            Int    @id @default(autoincrement())
+  slug          String @unique(map: "sqlite_autoindex_meals_1")
+  title         String
+  image         String
+  summary       String
+  instructions  String
+  creator       String
+  creator_email String
+}
