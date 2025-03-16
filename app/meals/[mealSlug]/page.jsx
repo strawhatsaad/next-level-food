@@ -4,16 +4,18 @@ import { getMeal } from "@/lib/meals";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 
-export async function generateMetadata({ params }) {
-  const meal = await getMeal(params.mealSlug);
-  if (!meal) {
-    notFound();
-  }
-  return {
-    title: meal.title,
-    description: meal.summary,
-  };
-}
+// export async function generateMetadata({ params }) {
+//   const meal = await getMeal(params.mealSlug);
+//   if (!meal) {
+//     notFound();
+//   }
+//   return {
+//     title: meal.title,
+//     description: meal.summary,
+//   };
+// }
+
+export const dynamic = "force-dynamic";
 
 export default async function MealPage({ params }) {
   const meal = await getMeal(params.mealSlug, { cache: "no-store" });
