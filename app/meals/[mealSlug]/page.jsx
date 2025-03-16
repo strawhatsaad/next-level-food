@@ -2,6 +2,7 @@ import Image from "next/image";
 import classes from "./page.module.css";
 import { getMeal } from "@/lib/meals";
 import { notFound } from "next/navigation";
+import { cache } from "react";
 
 export async function generateMetadata({ params }) {
   const meal = await getMeal(params.mealSlug);
@@ -15,7 +16,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function MealPage({ params }) {
-  const meal = await getMeal(params.mealSlug);
+  const meal = await getMeal(params.mealSlug, { cache: "no-store" });
   if (!meal) {
     notFound();
   }
